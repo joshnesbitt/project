@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
 require 'project'
 
-runner = Runner.new(ARGV[0])
+runner = Project::Runner.new(ARGV[0])
 runner.run!

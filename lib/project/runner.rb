@@ -3,19 +3,16 @@ module Project
     attr_accessor :key, :project, :workflow
 
     def initialize(key)
-      raise MissingProjectKeyError, "No project key given" if key.nil?
+      exit_with "No project key given" if key.nil?
       self.key = key.chomp.to_sym
       
       Loader.new.load!
       
-      
-      # TODO: Load YAML config here (including catch parse errors).
-      
       self.project = Project.find(self.key)
-      raise MissingProjectError, "No project error" if self.project.nil?
+      exit_with "No project found using key '#{self.key}'" if self.project.nil?
       
       self.workflow = Workflow.find(project.workflow)
-      raise MissingWorkflowError, "No workflow error" if self.workflow.nil?
+      exit_with "No workflow found using key '#{self.project.workflow}'" if self.project.nil?
     end
     
     def run!
@@ -24,9 +21,14 @@ module Project
       self.workflow.each do |command|
         command = Template.new(command, self.project).parse
         
-        # TODO: execute command here
-        $stdout.puts "- #{command}"
+        %x[ #{command} ]
       end
+    end
+    
+    private
+    def exit_with(message, code=1)
+      $stdout.puts message
+      Kernel.exit(code)
     end
   end
 end
