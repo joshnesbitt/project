@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{project}
-  s.version = "0.9.0"
+  s.version = "0.8.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Josh Nesbitt"]
@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
      "lib/project/runner.rb",
      "lib/project/template.rb",
      "lib/project/workflow.rb",
+     "project.gemspec",
      "readme.rdoc",
      "spec/lib/lookup_spec.rb",
      "spec/spec_helper.rb",

@@ -10,9 +10,6 @@ module Project
   end
   
   class AbstractClassError < ProjectError; end
-  class MissingProjectKeyError < ProjectError; end
-  class MissingProjectError < ProjectError; end
-  class MissingWorkflowError < ProjectError; end
   class MissingTemplateVariable < ProjectError; end
   
 end
