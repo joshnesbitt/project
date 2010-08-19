@@ -1,4 +1,6 @@
 module Project
+  require 'project/project'
+  require 'project/workflow'
   require 'fileutils'
   require 'yaml'
   
