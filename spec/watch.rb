@@ -1,7 +1,7 @@
 # A simple alternative to autotest that isnt as painful
 
 options = {
-  :options => "--require 'spec/spec_helper' --format nested --color",
+  :options => "--require '#{File.expand_path(File.dirname(__FILE__)) + "/spec_helper"}' --format nested --color",
   :binary => "spec"
 }
 

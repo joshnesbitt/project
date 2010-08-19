@@ -11,6 +11,7 @@ begin
     gem.homepage = "http://github.com/joshnesbitt/project"
     gem.authors = ["Josh Nesbitt"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
+    gem.executables << 'project'
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
