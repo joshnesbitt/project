@@ -1,5 +1,5 @@
-require 'fileutils'
 module Project
+  require 'fileutils'
   require 'yaml'
   
   class Loader
