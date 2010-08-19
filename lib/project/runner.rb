@@ -17,7 +17,6 @@ module Project
     
     def run!
       say "* Opening project '#{self.key}' using workflow '#{self.project.workflow}'"
-      seperator
       
       self.workflow.each_with_index do |command, index|
         command = Template.new(command, self.project).parse
