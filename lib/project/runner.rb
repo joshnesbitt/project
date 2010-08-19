@@ -21,7 +21,7 @@ module Project
       self.workflow.each do |command|
         command = Template.new(command, self.project).parse
         
-        %x[ #{command} ]
+        $stdout.puts %x[ #{command} ]
       end
     end
     
