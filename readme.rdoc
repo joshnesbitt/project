@@ -51,9 +51,10 @@ The only required key within a project is *workflow*. This is important as you n
 A workflow is a set of commands you want run against a particular project. An example workflow might look something like this:
 
   :default:
-    - cd %path
+    - mate %path
+    - cd %path && gitx
 
-A workflow is just a YAML array of templated commands. Any variable used in a workflow will get looked up on the project that is running it. In the example above the %path variable has been replaced by the path specified within the project. Using this method you can quickly build up a set of common workflows to use against any project.
+A workflow is just a YAML array of templated commands. Any variable used in a workflow will get looked up on the project that is running it. In the example above the %path variable has been replaced by the path specified within the project. Using this method you can quickly build up a set of common workflows to use against any project. At the moment each command within a workflow is run inside it's own sub shell. This means that *every command is isolated from the surrounding commands*, so instead of doing two commands as +cd /some/path+ and +rake+ you would do +cd /some/path && rake+.
 
 
 === Running a project
