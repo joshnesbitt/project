@@ -22,7 +22,9 @@ The project is hosted on rubygems.org. Getting it is simple:
 
 Once the gem is installed run:
 
-  @project install@
+==
+project install
+==
 
 Assuming you haven't already had the gem installed this will create a file at @~/.project@. This is the main configuration file used to drive project.
 
