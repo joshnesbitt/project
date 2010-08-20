@@ -38,10 +38,9 @@ h3. Projects
 
 A project can be anything revolving around a particular context. A typical use case would be opening your default environment surrounding a particular project. An example project configuration might look like this:
 
-pre.
-  :name:
-    :path: /path/to/project
-    :workflow: default
+pre.:name:
+      :path: /path/to/project
+      :workflow: default
 
 The only required key within a project is *workflow*. This is important as you need to tell project which workflow to apply against the project. Any other variables specified here will be passed through to a workflow (more on this below).
 
