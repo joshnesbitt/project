@@ -1,4 +1,4 @@
-= Project
+h1. Project
 
 * Overview
 * Installation
@@ -8,33 +8,33 @@
 
 
 
-== Overview
+h2. Overview
 
 Project aims to make working with multiple projects as simple as possible. By registering projects with workflows you can quickly create a set of commands that will be run against each project.
 
 
 
-== Installation
+h2. Installation
 
 The project is hosted on rubygems.org. Getting it is simple:
 
-  gem install project
+  @gem install project@
 
 Once the gem is installed run:
 
-  project install
+  @project install@
 
-Assuming you haven't already had the gem installed this will create a file at ~/.project. This is the main configuration file used to drive project.
+Assuming you haven't already had the gem installed this will create a file at @~/.project@. This is the main configuration file used to drive project.
 
 
 
-== Usage
+h2. Usage
 
 Project uses a YAML file for its configuration. Edit the file located in at ~/.project to you liking.
 
 
 
-=== Projects
+h3. Projects
 
 A project can be anything revolving around a particular context. A typical use case would be opening your default environment surrounding a particular project. An example project configuration might look like this:
 
@@ -46,7 +46,7 @@ The only required key within a project is *workflow*. This is important as you n
 
 
 
-==== Workflows
+h3. Workflows
 
 A workflow is a set of commands you want run against a particular project. An example workflow might look something like this:
 
@@ -57,7 +57,7 @@ A workflow is a set of commands you want run against a particular project. An ex
 A workflow is just a YAML array of templated commands. Any variable used in a workflow will get looked up on the project that is running it. In the example above the %path variable has been replaced by the path specified within the project. Using this method you can quickly build up a set of common workflows to use against any project. At the moment each command within a workflow is run inside it's own sub shell. This means that *every command is isolated from the surrounding commands*, so instead of doing two commands as +cd /some/path+ and +rake+ you would do +cd /some/path && rake+.
 
 
-=== Running a project
+h3. Running a project
 
 Running a project is simple, just specify the name of the project you want to load and the workflow will run for it:
 
@@ -65,13 +65,13 @@ Running a project is simple, just specify the name of the project you want to lo
 
 
 
-== Bugs
+h2. Bugs
 
 If you have any problems with Project, please file an issue at http://github.com/joshnesbitt/project/issues.
 
 
 
-== Note on Patches/Pull Requests
+h2. Note on Patches/Pull Requests
  
 * Fork the project.
 * Make your feature addition or bug fix.
@@ -83,6 +83,6 @@ If you have any problems with Project, please file an issue at http://github.com
 
 
 
-== Copyright
+h2. Copyright
 
 Copyright (c) 2010 Josh Nesbitt <josh@josh-nesbitt.net>. See LICENSE for details.
