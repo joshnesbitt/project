@@ -14,4 +14,5 @@ require 'project'
 require 'loader'
 require 'runner'
 
-Project::Loader.config_path(ENV["HOME"] + "/.project")
+PROJECT_CONFIG = File.join(ENV["HOME"], '.project')
+Project::Loader.config_path(PROJECT_CONFIG)

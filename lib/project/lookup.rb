@@ -23,6 +23,10 @@ module Project
         end
       end
       
+      def clear_all
+        @store = {}
+      end
+      
       protected
       def return_object(data)
         raise AbstractClassError, "this is an abstract class method and should not be called directly."
