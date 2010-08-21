@@ -70,7 +70,7 @@ pre. :default:
   - cd %path && gitx
   - cd %path && rails server
   - open 'http://%app'
-  - open "http://%basecamp_url"
+  - open 'http://%basecamp_url'
 
 Which:
 
