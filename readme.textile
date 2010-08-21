@@ -79,6 +79,8 @@ Which:
 * opens the Basecamp project for a project
 * starts the Rails server (and opens it up in the default browser)
 
+*Note:* at the moment commands do not support being Daemonised, hence why the call to @rails server@ is the last command executed.
+
 
 
 h3. Running a project
