@@ -11,12 +11,13 @@ module Project
     def parse!
       matches = self.subject.scan(REGEX)
       matches.flatten!
-
+      
       matches.each do |match|
-        raise MissingTemplateVariable, "No variable named %#{match} was specified in the project #{self.key}" if replacements[match].nil?
-        self.subject.gsub!("%#{match}", replacements[match])
+        replacement = replacements[match.to_sym]
+        raise MissingTemplateVariable, "No variable named %#{match} was found on the specified project." if replacement.nil?
+        self.subject.gsub!("%#{match}", replacement)
       end
-
+      
       self.subject
     end
   end
