@@ -1,7 +1,7 @@
 module Project
   class Template
     attr_accessor :subject, :replacements
-    REGEX = /%([a-z|A-Z]*)?/
+    REGEX = /%([a-z|A-Z|_]*)?/
     
     def initialize(subject, replacements)
       self.subject      = subject

@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{project}
-  s.version = "0.9.3"
+  s.version = "1.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Josh Nesbitt"]
-  s.date = %q{2010-08-19}
-  s.description = %q{}
+  s.date = %q{2010-08-21}
+  s.description = %q{Project aims to make working with multiple projects as simple as possible. By registering projects with workflows you can quickly create a set of commands that will be run against each project.}
   s.email = %q{josh@josh-nesbitt.net}
   s.executables = ["project", "project"]
   s.extra_rdoc_files = [
@@ -32,8 +32,15 @@ Gem::Specification.new do |s|
      "lib/project/template.rb",
      "lib/project/workflow.rb",
      "project.gemspec",
-     "readme.rdoc",
+     "readme.textile",
+     "spec/fixtures/config.yml",
+     "spec/lib/core_ext_spec.rb",
+     "spec/lib/errors_spec.rb",
+     "spec/lib/loader_spec.rb",
      "spec/lib/lookup_spec.rb",
+     "spec/lib/project_spec.rb",
+     "spec/lib/template_spec.rb",
+     "spec/lib/workflow_spec.rb",
      "spec/spec_helper.rb",
      "spec/watch.rb",
      "templates/example.yml"
@@ -41,10 +48,16 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/joshnesbitt/project}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.6}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{A streamlined approach to working with multiple projects and tasks.}
   s.test_files = [
-    "spec/lib/lookup_spec.rb",
+    "spec/lib/core_ext_spec.rb",
+     "spec/lib/errors_spec.rb",
+     "spec/lib/loader_spec.rb",
+     "spec/lib/lookup_spec.rb",
+     "spec/lib/project_spec.rb",
+     "spec/lib/template_spec.rb",
+     "spec/lib/workflow_spec.rb",
      "spec/spec_helper.rb",
      "spec/watch.rb"
   ]
@@ -53,7 +66,7 @@ Gem::Specification.new do |s|
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
     else
       s.add_dependency(%q<rspec>, [">= 1.2.9"])

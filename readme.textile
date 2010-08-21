@@ -68,16 +68,16 @@ My default workflow looks something like this:
 pre. :default:
   - mate %path
   - cd %path && gitx
-  - cd %path && rails server
-  - open 'http://%app'
   - open 'http://%basecamp_url'
+  - open 'http://%app'
+  - cd %path && rails server
 
 Which:
 
 * opens a project in Textmate
 * opens it's Git history
+* opens the Basecamp project for a project
 * starts the Rails server (and opens it up in the default browser)
-* opens the Basecamp project for that app.
 
 
 
