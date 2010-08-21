@@ -8,7 +8,7 @@ module Project
       self.replacements = replacements
     end
 
-    def parse
+    def parse!
       matches = self.subject.scan(REGEX)
       matches.flatten!
 

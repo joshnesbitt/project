@@ -1,7 +1,7 @@
 module Project
   class Runner
     attr_accessor :key, :project, :workflow
-
+    
     def initialize(key)
       exit_with "No project key given" if key.nil?
       self.key = key.chomp.to_sym
@@ -19,7 +19,7 @@ module Project
       say "* Opening project '#{self.key}' using workflow '#{self.project.workflow}'"
       
       self.workflow.each_with_index do |command, index|
-        command = Template.new(command, self.project).parse
+        command = Template.new(command, self.project).parse!
         output  = %x[ #{command} ].chomp
         
         unless output.empty?
