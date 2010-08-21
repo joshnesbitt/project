@@ -1,5 +1,3 @@
-# Core extensions
-
 class OpenStruct
   
   def [](key)

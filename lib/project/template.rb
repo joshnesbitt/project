@@ -2,12 +2,12 @@ module Project
   class Template
     attr_accessor :subject, :replacements
     REGEX = /%([a-z|A-Z]*)?/
-
+    
     def initialize(subject, replacements)
       self.subject      = subject
       self.replacements = replacements
     end
-
+    
     def parse!
       matches = self.subject.scan(REGEX)
       matches.flatten!

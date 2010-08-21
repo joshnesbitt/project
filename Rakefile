@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "project"
     gem.summary = "A streamlined approach to working with multiple projects and tasks."
-    gem.description = ""
+    gem.description = "Project aims to make working with multiple projects as simple as possible. By registering projects with workflows you can quickly create a set of commands that will be run against each project."
     gem.email = "josh@josh-nesbitt.net"
     gem.homepage = "http://github.com/joshnesbitt/project"
     gem.authors = ["Josh Nesbitt"]

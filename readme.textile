@@ -42,7 +42,7 @@ pre. :name:
   :path: /path/to/project
   :workflow: default
 
-The only required key within a project is *workflow*. This is important as you need to tell the project binary which workflow to apply against the project. Any other variables specified here will be passed through to a workflow (more on this below).
+The only required key within a project is *workflow*. This is important as you need to tell the @project@ binary which workflow to apply against the project. Any other variables specified here will be passed through to a workflow (more on this below).
 
 
 
@@ -59,7 +59,25 @@ Which translates to:
 * @mate /path/to/project@
 * @cd /path/to/project && gitx@
 
-A workflow is just a YAML array of templated commands. Any variable used in a workflow will get looked up on the project that's running it. In the example above the @%path@ variable is replaced by the path specified within the project. Using this method you can quickly build up a set of common workflows to use against many projects. At the moment each command within a workflow is run inside it's own sub shell. This means that *every command is isolated from other commands within the same workflow*, so instead of doing two commands as @cd /some/path@ and @rake@ you would do @cd /some/path && rake@.
+A workflow is just a YAML array of templated commands. Any variable used in a workflow will get looked up on the project that's running it. In the example above the @%path@ variable is replaced by the path specified within the project. Using this method you can quickly build up a set of common workflows to use against many projects.
+
+At the moment each command within a workflow is run inside it's own sub shell. This means that *every command is isolated from other commands within the same workflow*, so instead of doing two commands as @cd /some/path@ and @rake@ you would do @cd /some/path && rake@.
+
+My default workflow looks something like this:
+
+pre. :default:
+  - mate %path
+  - cd %path && gitx
+  - cd %path && rails server
+  - open 'http://%app'
+  - open "http://%basecamp_url"
+
+Which:
+
+* opens a project in Textmate
+* opens it's Git history
+* starts the Rails server (and opens it up in the default browser)
+* opens the Basecamp project for that app.
 
 
 
