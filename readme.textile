@@ -76,7 +76,7 @@ Which:
 
 * opens a project in Textmate
 * opens it's Git history
-* opens the Basecamp project for a project
+* opens the Basecamp project for the app
 * starts the Rails server (and opens it up in the default browser)
 
 *Note:* at the moment commands do not support being daemonised, hence why the call to @rails server@ is the last command executed.
