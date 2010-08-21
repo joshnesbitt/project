@@ -17,8 +17,12 @@ module Project
         Project.load_from_hash(config[:projects]) unless config[:projects].nil?
         Workflow.load_from_hash(config[:workflows]) unless config[:workflows].nil?
       else
-        FileUtils.cp(ROOT + "/templates/example.yml", self.class.config_path, { :verbose => true })
-        $stdout.puts "* No YAML file found at #{self.class.config_path}. One has been created for you, please edit it to your liking and try again."
+        FileUtils.cp(ROOT + "/templates/example.yml", self.class.config_path)
+        
+        $stdout.puts "* No YAML configuration file found!",
+                     "+ #{self.class.config_path}",
+                     "* One has been created for you, please edit it to your liking and try again."
+        
         Kernel.exit(1)
       end
     end
