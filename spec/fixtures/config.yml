@@ -1,0 +1,7 @@
+:workflows:
+  :default:
+    - mate %path
+:projects:
+  :example:
+    :path: /a/path
+    :workflow: default
