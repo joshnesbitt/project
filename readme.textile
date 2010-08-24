@@ -10,7 +10,7 @@ h1. Project
 
 h2. Overview
 
-Project aims to make working with multiple projects as simple as possible. By registering projects with workflows you can quickly create a set of commands that will be run against each project.
+Project aims to make working with multiple projects as simple as possible. By registering projects with workflows you can quickly create a set of commands that will be run against each project. Check out the "blog post":http://blog.josh-nesbitt.net/2010/08/21/project-simplified-project-workflows/ for a bit more background on how @project@ came to life.
 
 
 
