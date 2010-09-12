@@ -1,18 +1,15 @@
-$:.unshift File.dirname(__FILE__)
-$:.unshift File.join(File.dirname(__FILE__), "project")
-
 module Project
   ROOT = File.expand_path(File.dirname(__FILE__) + "/..")
 end
 
-require 'core_ext'
-require 'errors'
-require 'template'
-require 'lookup'
-require 'workflow'
-require 'project'
-require 'loader'
-require 'runner'
+require 'project/core_ext'
+require 'project/errors'
+require 'project/template'
+require 'project/lookup'
+require 'project/workflow'
+require 'project/project'
+require 'project/loader'
+require 'project/runner'
 
 PROJECT_CONFIG = if xdg = ENV["XDG_CONFIG_HOME"]
                    File.join(xdg, 'project', 'config.yaml')
