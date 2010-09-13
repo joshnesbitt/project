@@ -23,6 +23,7 @@ module Project
         Project.load_from_hash(@raw_config[:projects]) unless @raw_config[:projects].nil?
         Workflow.load_from_hash(@raw_config[:workflows]) unless @raw_config[:workflows].nil?
       else
+        FileUtils.mkdir_p(File.dirname(self.class.config_path))
         FileUtils.cp(@template_path, self.class.config_path)
         
         $stdout.puts "* No YAML configuration file found!",
