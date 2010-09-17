@@ -3,6 +3,7 @@ h1. Project
 * Overview
 * Installation
 * Usage
+* Changelog
 * Bugs
 * Note on Patches/Pull Requests
 
@@ -93,6 +94,18 @@ h3. Running a project
 Running a project is simple, just specify the name of the project you want to load and the workflow will run for it:
 
 pre. project name
+
+
+
+h2. Changelog
+
+h3. 1.2.0
+
+* Added the ability for each workflow command to run within the same sub-shell. Commands executed within a sequence now respect the last ran command.
+
+h3. 1.1.0
+
+* Fixed issue in template regular expression where numerics were being ignored.
 
 
 
