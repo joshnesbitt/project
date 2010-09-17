@@ -5,6 +5,7 @@ module Project
   CONFIG = File.join(ENV["HOME"], '.project')
 end
 
+require 'project/version'
 require 'project/core_ext'
 require 'project/errors'
 require 'project/template'
