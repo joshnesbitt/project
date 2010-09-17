@@ -61,7 +61,12 @@ Which translates to:
 
 A workflow is just a YAML array of templated commands. Any variable used in a workflow will get looked up on the project that's running it. In the example above the @%path@ variable is replaced by the path specified within the project. Using this method you can quickly build up a set of common workflows to use against many projects.
 
-At the moment each command within a workflow is run inside it's own sub shell. This means that *every command is isolated from other commands within the same workflow*, so instead of doing two commands as @cd /some/path@ and @rake@ you would do @cd /some/path && rake@.
+Each workflow runs within its own subshell. This means that every command executed will run in the environment as it was left by the previous command. Using the following two commands as an example:
+
+* @cd /Users/joshnesbitt/Desktop@
+* @ls@
+
+@ls@ will list all files on the desktop of @joshnesbitt@.
 
 My default workflow looks something like this:
 
