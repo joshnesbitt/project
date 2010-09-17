@@ -64,7 +64,7 @@ Which translates to:
 
 A workflow is just a YAML array of templated commands. Any variable used in a workflow will get looked up on the project that's running it. In the example above the @%path@ variable is replaced by the path specified within the project. Using this method you can quickly build up a set of common workflows to use against many projects.
 
-Each workflow runs within its own subshell. This means that every command executed will run in the environment as it was left by the previous command. Given the above workflow, first a directory is @cd@ed to, then commands are executed relative to that directory.
+Each workflow runs within its own subshell. This means that every command executed will run in the environment as it was left by the previous command. Given the above workflow, first a command executes which changes the current directory then commands are executed relative to that directory.
 
 My default workflow looks something like this:
 
@@ -80,7 +80,7 @@ Which:
 
 * changes to the project directory
 * opens the project in Textmate
-* opens it's Git history
+* opens it's Git history in GitX
 * opens the Basecamp project for the app
 * starts the Rails server (and opens it up in the default browser)
 
