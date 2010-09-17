@@ -18,14 +18,14 @@ module Project
     def run!
       say "* Opening project '#{self.key}' using workflow '#{self.project.workflow}'"
       
-      self.workflow.each_with_index do |command, index|
-        command = Template.new(command, self.project).parse!
-        output  = %x[ #{command} ].chomp
-        
-        unless output.empty?
-          say output
-          seperator unless index == (self.workflow.size - 1)
-        end
+      commands = CommandSet.new(self.project, self.workflow)
+      stdout, stderr = commands.execute!
+      
+      if stderr.empty?
+        puts stdout unless stdout.empty?
+      else
+        say "! An error occurred whilst running the workflow:"
+        say stderr
       end
     end
     
@@ -37,10 +37,6 @@ module Project
     def exit_with(message, code=1)
       say message
       Kernel.exit(code)
-    end
-    
-    def seperator
-      say "", ("*" * 80), ""
     end
   end
 end

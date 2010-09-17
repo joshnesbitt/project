@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
      "lib/project/version.rb",
      "lib/project/core_ext.rb",
      "lib/project/errors.rb",
+     "lib/project/command_set.rb",
      "lib/project/loader.rb",
      "lib/project/lookup.rb",
      "lib/project/project.rb",
