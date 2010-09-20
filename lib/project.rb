@@ -2,7 +2,11 @@ $:.unshift File.dirname(__FILE__)
 
 module Project
   ROOT = File.expand_path(File.dirname(__FILE__) + "/..")
-  CONFIG = File.join(ENV["HOME"], '.project')
+  CONFIG = if(xdg = ENV["XDG_CONFIG_HOME"])
+             File.join(xdg, 'project', 'config.yaml')
+           else
+             File.join(ENV["HOME"], '.project')
+           end
   SHELL_BINARY = ENV["SHELL"]
 end
 

@@ -25,7 +25,7 @@ Once the gem is installed run:
 
 pre. project install
 
-Assuming you haven't already had the gem installed this will create a file at @~/.project@. This is the main configuration file used to drive project.
+Assuming you haven't already had the gem installed this will create a file at @~/.project@ (or @~/.config/project/config.yaml@, if you're using X). This is the main configuration file used to drive project.
 
 
 
