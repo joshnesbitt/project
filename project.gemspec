@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.date = Time.now.strftime("%Y/%m/%d")
   s.description = %q{Project aims to make working with multiple projects as simple as possible. By registering projects with workflows you can quickly create a set of commands that will be run against each project.}
   s.email = %q{josh@josh-nesbitt.net}
-  s.executables = ["project"]
+  s.executables = %w{ project }
   s.extra_rdoc_files = [
     "LICENSE"
   ]
