@@ -5,6 +5,7 @@ h1. Project
 * Usage
 * Changelog
 * Bugs
+* Contributors
 * Note on Patches/Pull Requests
 
 
@@ -111,6 +112,12 @@ h3. 1.1.0
 h2. Bugs
 
 If you have any problems with Project, please file an "issue":http://github.com/joshnesbitt/project/issues.
+
+
+
+h2. Contributors
+
+* Simon Hafner ("Tass":http://github.com/Tass)
 
 
 
