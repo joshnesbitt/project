@@ -1,8 +1,11 @@
+require 'trollop'
 module Project
   class Runner
-    attr_accessor :key, :project, :workflow
+    attr_accessor :options, :key, :project, :workflow
     
-    def initialize(key)
+    def initialize(args)
+      self.options = parse_options!(args)
+      
       exit_with "No project key given" if key.nil?
       self.key = key.chomp.to_sym
       
@@ -30,6 +33,17 @@ module Project
     end
     
     private
+    def parse_options!(args)
+      options = Trollop::options do
+        version Version::STRING
+        
+        banner File.open(ROOT + "/USAGE") { |f| f.read }
+        opt :verbose, "Report as commands are processed and pass through output", :short => "-v", :default => false
+        opt :config, "Provide a config file instead of the default (default here)", :short => "-c", :default => '~/.project'
+      
+      end
+    end
+    
     def say(*things)
       $stdout.puts *things
     end

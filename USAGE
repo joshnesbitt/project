@@ -1,0 +1,7 @@
+Project by Josh Nesbitt <josh@josh-nesbitt.net>
+
+A streamlined approach to working with multiple projects and tasks.
+
+Example Usage:
+
+  project name [subcommand] --verbose

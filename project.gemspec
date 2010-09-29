@@ -13,15 +13,15 @@ Gem::Specification.new do |s|
   s.summary = %q{A streamlined approach to working with multiple projects and tasks.}
   s.test_files = `git ls-files spec`.split("\n")
   s.post_install_message = <<-MESSAGE
-#{"*"* 80}
-Thanks for installing Project. Please check the README for the changelog:
+  
+  Thanks for installing Project. Please check the README for the changelog:
 
-http://github.com/joshnesbitt/project#readme
-#{"*"* 80}
+  http://github.com/joshnesbitt/project#readme
 
   MESSAGE
   s.platform = Gem::Platform::RUBY
   s.rubygems_version = %q{>= 1.3.6}
+  s.add_dependency('trollop', '1.16.2')
   s.add_dependency('rspec', '>= 1.2.9')
   s.rdoc_options = ["--charset=UTF-8"]
 end
