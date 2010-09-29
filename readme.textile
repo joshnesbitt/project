@@ -93,7 +93,7 @@ h3. Running a project
 
 Running a project is simple, just specify the name of the project you want to load and the workflow will run for it:
 
-pre. project name
+pre. project open name
 
 
 

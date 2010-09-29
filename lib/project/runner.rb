@@ -2,7 +2,7 @@ require 'trollop'
 module Project
   class Runner
     attr_reader :options
-    COMMANDS = %w{ open list }
+    COMMANDS = %w{ open list install }
     
     def initialize(args)
       @options = parse_options!(args)
