@@ -1,56 +1,82 @@
 require 'trollop'
 module Project
   class Runner
-    attr_accessor :options, :key, :project, :workflow
+    attr_reader :options
+    COMMANDS = %w{ open list }
     
     def initialize(args)
-      self.options = parse_options!(args)
-      
-      exit_with "No project key given" if key.nil?
-      self.key = key.chomp.to_sym
-      
-      Loader.new.load!
-      
-      self.project = Project.find(self.key)
-      exit_with "No project found using key '#{self.key}'" if self.project.nil?
-      
-      self.workflow = Workflow.find(project.workflow)
-      exit_with "No workflow found using key '#{self.project.workflow}'" if self.project.nil?
+      @options = parse_options!(args)
+      load_config!(options[:config])
     end
     
     def run!
-      say "* Opening project '#{self.key}' using workflow '#{self.project.workflow}'"
+      command = options[:command]
       
-      commands = CommandSet.new(self.project, self.workflow)
+      unless command && COMMANDS.include?(command)
+        exit_with "command '#{command}' not found"
+      end
+      
+      case command.to_sym
+      when :open
+        open(options[:key], options)
+      when :list
+        list(options)
+      end
+    end
+    
+    def open(key, options={})
+      exit_with "no project key given" if key.nil?
+      
+      project = Project.find(key)
+      exit_with "no project found using key '#{key}'" if project.nil?
+      
+      workflow = Workflow.find(project.workflow)
+      exit_with "no workflow found using key '#{project.workflow}'" if project.nil?
+      
+      say "* Opening project '#{key}' using workflow '#{project.workflow}'"
+      
+      commands = CommandSet.new(project, workflow)
       stdout, stderr = commands.execute!
       
       if stderr.empty?
-        puts stdout unless stdout.empty?
+        say(stdout) unless stdout.empty?
       else
         say "! An error occurred whilst running the workflow:"
         say stderr
       end
     end
     
+    def list(options={})
+      say "Projects:", *Project.all.keys.collect { |name| "- #{name}" }
+      say "", "Workflows:", *Workflow.all.keys.collect { |name| "- #{name}" }
+    end
+    
     private
     def parse_options!(args)
-      options = Trollop::options do
+      opts = Trollop::options do
         version Version::STRING
-        
         banner File.open(ROOT + "/USAGE") { |f| f.read }
-        opt :verbose, "Report as commands are processed and pass through output", :short => "-v", :default => false
-        opt :config, "Provide a config file instead of the default (default here)", :short => "-c", :default => '~/.project'
-      
+        
+        opt :verbose, "Log output of a workflow", :short => "-v", :default => false
+        opt :config, "Path to an alternative configuration file", :short => "-c", :default => CONFIG
       end
+      
+      opts.merge!(:command => ARGV[0])
+      opts.merge!(:key => ARGV[1])
+      opts.merge!(:sub_command => ARGV[2])
+    end
+    
+    def load_config!(path)
+      loader = Loader.new(path)
+      loader.load!
     end
     
     def say(*things)
-      $stdout.puts *things
+      $stdout.puts(*things)
     end
     
-    def exit_with(message, code=1)
-      say message
-      Kernel.exit(code)
+    def exit_with(message)
+      Trollop::die message
     end
   end
 end

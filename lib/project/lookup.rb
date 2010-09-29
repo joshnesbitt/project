@@ -1,17 +1,18 @@
 module Project
   class Lookup
     class << self
-
+      
       def store
         @store = {} unless @store
         @store
       end
-
+      alias :all :store
+      
       def set(key, data)
         store[key.to_sym] = data
       end
       alias :register :set
-
+      
       def get(key)
         store[key.to_sym] ? return_object(store[key.to_sym]) : nil
       end

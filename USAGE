@@ -4,4 +4,12 @@ A streamlined approach to working with multiple projects and tasks.
 
 Example Usage:
 
-  project name [subcommand] --verbose
+  project [command] [key] [subcommand] [options]
+
+Commands:
+
+    open:   opens a project and runs the specified workflow.
+    list:   lists all projects specified in the configuration file.
+
+Options:
+

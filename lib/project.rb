@@ -20,5 +20,3 @@ require 'project/workflow'
 require 'project/project'
 require 'project/loader'
 require 'project/runner'
-
-Project::Loader.config_path(Project::CONFIG)

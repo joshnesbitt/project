@@ -15,9 +15,9 @@ Gem::Specification.new do |s|
   s.post_install_message = <<-MESSAGE
   
   Thanks for installing Project. Please check the README for the changelog:
-
+  
   http://github.com/joshnesbitt/project#readme
-
+  
   MESSAGE
   s.platform = Gem::Platform::RUBY
   s.rubygems_version = %q{>= 1.3.6}
