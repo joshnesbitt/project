@@ -61,9 +61,9 @@ module Project
         opt :config, "Path to an alternative configuration file", :short => "-c", :default => CONFIG
       end
       
-      opts.merge!(:command => ARGV[0])
-      opts.merge!(:key => ARGV[1])
-      opts.merge!(:sub_command => ARGV[2])
+      opts.merge!(:command => args[0])
+      opts.merge!(:key => args[1])
+      opts.merge!(:sub_command => args[2])
     end
     
     def load_config!(path)
