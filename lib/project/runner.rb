@@ -53,7 +53,7 @@ module Project
     
     private
     def parse_options!(args)
-      opts = Trollop::options do
+      opts = Trollop::options(args) do
         version Version::STRING
         banner File.open(ROOT + "/USAGE") { |f| f.read }
         
