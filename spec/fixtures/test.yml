@@ -1,7 +1,7 @@
 :workflows:
   :default:
-    - echo "Hello %name"
+    - mate %path
 :projects:
   :example:
-    :name: "World"
+    :path: /a/path
     :workflow: default

@@ -2,7 +2,7 @@ module Project
   describe Loader do
     
     before do
-      @config_path = File.join(ROOT, 'spec', 'fixtures', 'config.yml')
+      @config_path = File.join(ROOT, 'spec', 'fixtures', 'test.yml')
       @loader = Loader.new(@config_path)
     end
     

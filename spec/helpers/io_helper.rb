@@ -16,9 +16,10 @@ module IOHelper
     end
   end
   
-  def should_output(expected, &block)
+  def should_output(*parts, &block)
     capture_stdout do |stdout|
       block.call
+      expected = parts.size == 1 ? parts.first : parts.join
       
       if expected.is_a?(Regexp)
         expected.should =~ stdout.string
@@ -28,8 +29,8 @@ module IOHelper
     end
   end
   
-  def should_output_and_exit(expected, &block)
-    should_output expected do
+  def should_output_and_exit(*parts, &block)
+    should_output *parts do
       lambda { block.call }.should raise_error(SystemExit)
     end
   end
